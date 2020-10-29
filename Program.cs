@@ -156,7 +156,7 @@ namespace HamnenConsole
 
 
                 }
-                //om koden kommer hit finns det ingen plats för båten.
+                //om koden kommer hit finns det ingen plats för båten..
                 Debug.Print(boat.BoatType + " kom inte in i hamnen.");
             }
 

@@ -1,2 +1,2 @@
 # HamnenConsole
-Mitt första projektarbete på it-högskolan
+Mitt första examinationsprojekt på it-högskolan.

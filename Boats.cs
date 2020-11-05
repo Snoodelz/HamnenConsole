@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HamnenConsole
 {
-
+    [Serializable]
     class Boat
     {
         private static readonly Random Random = new Random();
@@ -16,6 +16,8 @@ namespace HamnenConsole
         public int MaxSpeed { get; set; }
         public int DaysToStay { get; set; }
         public int DaysStayed { get; set; } = 0;
+        public float StartingPlace { get; set; }
+        public float EndingPlace { get; set; }
 
 
         public int RandomNumber(int minValue, int maxValue)
@@ -37,7 +39,19 @@ namespace HamnenConsole
             var id = $"{type}-{finalString}";
             return id;
         }
+
+        public virtual string UniqueProperty()
+        {
+            return null;
+        }
+
+        public double KnotToKmh()
+        {
+            double kmh = MaxSpeed * 1.8520f;
+            return Math.Round(kmh);
+        }
     }
+    [Serializable]
     class RowBoat : Boat
     {
         public RowBoat()
@@ -52,7 +66,12 @@ namespace HamnenConsole
         }
 
         public int MaxPassengers { get; set; }
+        public override string UniqueProperty()
+        {
+            return "Max Antal pers: " + MaxPassengers;
+        }
     }
+    [Serializable]
     class PowerBoat : Boat
     {
         public PowerBoat()
@@ -67,7 +86,12 @@ namespace HamnenConsole
         }
 
         public int HorsePowers { get; set; }
+        public override string UniqueProperty()
+        {
+            return "Hästkrafter: " + HorsePowers;
+        }
     }
+    [Serializable]
     class SailingBoat : Boat
     {
         public SailingBoat()
@@ -82,7 +106,12 @@ namespace HamnenConsole
         }
 
         public int BoatLength { get; set; }
+        public override string UniqueProperty()
+        {
+            return "Båtlängd: " + BoatLength;
+        }
     }
+    [Serializable]
     class CargoShip : Boat
     {
         public CargoShip()
@@ -96,6 +125,10 @@ namespace HamnenConsole
             ContainerAmount = RandomNumber(0, 500);
         }
         public int ContainerAmount { get; set; }
+        public override string UniqueProperty()
+        {
+            return "Containers: " + ContainerAmount;
+        }
     }
 
 }
